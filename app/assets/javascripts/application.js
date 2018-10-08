@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+// Boosstrap追加の記述
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
