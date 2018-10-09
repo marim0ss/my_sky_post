@@ -20,6 +20,33 @@ class UsersController < ApplicationController
   end
 
 
+  #詳細表示
+  def show
+    @user = User.find(params[:id])
+  end
+
+  #編集
+  def edit
+    # 編集するユーザーの情報を取得
+    @user = User.find(params[:id])
+  end
+
+
+  #更新
+  def update
+    @user = User.find(params[:id])
+    @user.update(users_params)
+    redirect_to user_path(@user)
+  end
+
+  # 削除
+  def destroy
+    # URLのidからUserモデルデータに一致するidを見つけ、ユーザー特定
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_path
+  end
+
 
   private
     # ------------------------------------------------------------------

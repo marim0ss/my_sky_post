@@ -17,6 +17,52 @@
 @import "bootstrap";
 
 
+// 位置調整
+//divなどを中央配置。ナビバー分上の余白を空けた コンテンツの中央配置
+.center-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+
+// フォーム----newなどの登録フォームの間隔など調整
+label {
+  margin: 2px 10px;
+  &.radio, &.checkbox {
+    float: none;
+    margin: 0;
+    width: auto;
+    text-align: left;
+  }
+  &.checkbox {
+    display: block;
+  }
+  &.radio { margin-right: 10px; }
+}
+
+textarea {
+  width: 300px;
+}
+
+
+
+  // input { margin-bottom: 10px;} form-groupで余白ができてるのでここは省略
+input.radio_buttons, input.check_boxes {
+  margin-right: 5px;
+}
+
+
+
+
+
+// ボタンの横幅を合わせる
+.w-arrange-btn {
+  width: 200px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
 
 // カスタムカラー設定
 .btn-ac1{

@@ -1,0 +1,29 @@
+<!-- フォームCSSなど確認用 -->
+<div class="container-fluid center-content">
+
+<div class="card" style="width: 30rem;">
+  <h2 class="card-header"></h2>
+  <div class="card-body">
+
+<%= form_with(model: user, local: true) do |form| %>
+<!-- model: diaryと指定し、この指定を受けてこのファイルではDiaryモデルに関連づいた入力フォームが作られる -->
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <!-- form.text_field <=input type=textタグを出力する -->
+    <%= form.text_field :name, id: :user_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age, id: :user_age %>
+  </div>
+
+  <div class="actions">
+    <%= form.button :submit, :class=>"btn btn-ac1 btn-lg btn-block" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
