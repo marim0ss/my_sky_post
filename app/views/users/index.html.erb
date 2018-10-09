@@ -1,3 +1,61 @@
-<% provide(:title, "ユーザー一覧") %>
+<% provide(:title, "User一覧") %>
 
-<h4>Users#indexページ</h4>
+
+<div class="container-fluid">
+  <div class="user-table">
+        <h1><i class="far fa-address-card ac2">User一覧</i></h1>
+
+    <div class="panel panel-primary">
+
+      <table class="table table-striped">
+        <thead>
+          <tr class="bg-info text-white">
+            <th scope="col">名前</th>
+            <th scope="col">誕生日</th>
+            <th scope="col">年齢</th>
+            <th scope="col">出身</th>
+            <th scope="col">性別</th>
+            <th scope="col">How are you?</th>
+            <th scope="col">画像</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.birth_date %></td>
+            <td><%= user.age %></td>
+            <td><%= user.birthplace %></td>
+            <td><%= user.gender %></td>
+
+            <!-- how_are_youカラム1,2,,に合わせて対応画像を表示 -->
+            <td><% user.how_are_you %>
+              <% case user.how_are_you %>
+                <% when "1" then %>
+                <%= image_tag '/laugh-squint-regular.svg', :size => '30x20' %>
+                <% when "2" then %>
+                <%= image_tag '/grin-regular.svg', :size => '30x20' %>
+                <% when "3" then %>
+                <%= image_tag '/meh-blank-regular.svg', :size => '30x20' %>
+                <% when "4" then %>
+                <%= image_tag '/frown-regular.svg', :size => '30x20' %>
+                <% else %>
+                <%= user.how_are_you %>
+              <% end %>
+            </td>
+
+            <!-- <td> image_tag user.image_url(:thumb)</td> --><td>
+            </td>
+            <td><%= link_to '詳細', user_path(user), class: "btn btn-outline-info btn-sm" %></td>
+            <td><%= link_to '編集', edit_user_path(user), :class => "btn btn-outline-secondary btn-sm" %></td>
+            <td><%= link_to '削除', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark btn-sm" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!-- <div class="panel panel-primary"> -->
+    </div><!-- user-table -->
+  </div><!-- <div class="container-fluid"> -->

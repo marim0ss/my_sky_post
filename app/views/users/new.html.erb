@@ -62,8 +62,14 @@
             </div><!-- collapse_profile ========================================================-->
             <%= f.button :submit, "Sign UP！", :class=>"btn btn-ac1 btn-lg btn-block" %>
             <p class="text-danger font-weight-light text-center"> *は必須項目です</p>
+
         <% end %>
         <p class="font-weight-light text-center">登録済ユーザーの方は<%= link_to 'こちら', '#', :class=>"font-weight-bold text-link" %>からログイン</p>
+
+                    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                      users_path, :class => 'btn btn-outline-secondary btn-block' %>
+
+
   </div>
 </div>
 </div>
