@@ -44,8 +44,8 @@
                 <%= f.input :age, collection: 0..110, label: "年齢" %>
               </div>
               <div class="form-group">
-                <%= f.label :birthplace, "出身" %>
-                <%= f.text_field :birthplace %>
+                <!-- <%= f.label :birthplace, "出身" %> -->
+                <%= f.input :birthplace, label: "出身" %>
               </div>
               <!-- 性別ラジオボタン。 male=>male, female=>femaleとして登録 -->
               <div class="form-group">
@@ -54,7 +54,7 @@
 
               <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
               <div class="form-group">
-                <%= f.input :how_are_you, label: "How are you?", as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %>
+                <%= f.input :how_are_you, label: "How are you?", as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1 %>
               </div>
 
 
