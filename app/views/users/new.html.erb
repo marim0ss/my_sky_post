@@ -1,8 +1,5 @@
 <% provide(:title, "ユーザー新規登録") %>
 
-<!-- フラッシュ --->
-<!-- <%= render 'layouts/flash.html.erb' %> -->
-
 
 <div class="container-fluid center-content">
 
@@ -11,20 +8,19 @@
   <div class="card-body">
         <%= simple_form_for @user, :url => {:action => :create} do |f| %>
 
-            <!-- エラーメッセージ -->
-            <!-- <%= render 'shared/error_messages.html.erb' %> -->
 
             <%= f.label :name, "Name*" %><br>
             <%= f.text_field :name, class: 'form-control' %>
 
             <!-- <%= f.label :email, "Email*" %><br>
-            <%= f.email_field :email, class: 'form-control' %> -->
+             f.email_field :email, class: 'form-control'  -->
 
             <!-- <%= f.label :password, "password*" %>
             <%= f.password_field :password, class: 'form-control' %>
 
             <%= f.label :password_confirmation, "確認用*" %>
             <%= f.password_field :password_confirmation, class: 'form-control' %> -->
+
             <br />
           <!--  #as: :fileでアップロードフォームが作れる -->
             <!-- <div class="form-group">
@@ -61,11 +57,7 @@
                 <%= f.input :how_are_you, label: "How are you?", as: :radio_buttons, collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]], checked: 1, item_wrapper_class: "inline" %>
               </div>
 
-              <!-- プログラミングチェックボックス -->
-              <div class="form-group">
-                <%= f.label :programming, "Your programming skill?" %>
-                <p><%= f.collection_check_boxes :programming, [["Java", "Java"],["Ruby", "Ruby"],["PHP", "PHP"],["Python", "Python"]], :first, :last %></p>
-              </div>
+
               <hr />
             </div><!-- collapse_profile ========================================================-->
             <%= f.button :submit, "Sign UP！", :class=>"btn btn-ac1 btn-lg btn-block" %>
