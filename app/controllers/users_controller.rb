@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
 
+
   private
     # ------------------------------------------------------------------
       #ストロングパラメータを定義
