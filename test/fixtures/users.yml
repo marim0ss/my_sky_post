@@ -1,16 +1,16 @@
 # テストデータ。rails db:fixtures:loadで読み込む
-one:
-  id: 1
-  name: Sum
-  age: 28
-  birthplace: USA
-  gender: male
-  how_are_you: 1
-
-two:
-  id: 2
-  name: Alice
-  age: 18
-  birthplace: UK
-  gender: female
-  how_are_you: 4
+# one:
+#   id: 1
+#   name: Sum
+#   age: 28
+#   birthplace: USA
+#   gender: male
+#   how_are_you: 1
+#
+# two:
+#   id: 2
+#   name: Alice
+#   age: 18
+#   birthplace: UK
+#   gender: female
+#   how_are_you: 4
