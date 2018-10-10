@@ -8,16 +8,16 @@ namespace :import_csv do
 
   task users: :environment do   # タスク名 userデータをインポートしたい
 
-		#インポートするファイルのパスを取得する記述.このファイルからインポートする
-    path = File.join Rails.root, "db/csv/csv_data.csv"
+    #インポートするファイルのパスを取得する記述.このファイルからインポートする
+    path = File.join Rails.root, "db/csv/csv_users.csv"
 
-		# 取得したパスをターミナルに表示させてみる
+    # 取得したパスをターミナルに表示させてみる
     puts "取得したパス: #{path}"
   #---------------------------------------------------------
   #  実際のインポート処理
   #---------------------------------------------------------
 
-		list = []    # インポートするデータを格納する配列を作る
+    list = []    # インポートするデータを格納する配列を作る
 
   # CSVファイルからインポートするデータを取得し、配列listに格納
     CSV.foreach(path, headers: true) do |row|
@@ -46,5 +46,5 @@ namespace :import_csv do
       puts "インポート失敗です : UnknownAttributeError"
     end
 
-	end
+  end
 end
