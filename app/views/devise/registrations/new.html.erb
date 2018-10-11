@@ -1,25 +1,98 @@
-<h2>Sign up</h2>
+<% provide(:title, "ユーザー新規登録") %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true ,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="container-fluid center-content">
+
+<div class="card" style="width: 35rem;">
+  <h2 class="card-header"><i class="fas fa-user-plus">ユーザー新規登録</i></h2>
+  <div class="card-body">
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+
+        <%= f.input :name,
+                    label: '名前',
+                    required: true,
+                    autofocus: true ,
+                    input_html: { autocomplete: "name" }%>
+
+        <%= f.input :email,
+                    label: 'Email',
+                    required: true,
+                    autofocus: true ,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    label: 'パスワード',
+                    required: true,
+                    hint: ("最低 #{@minimum_password_length} 文字以上で設定してください" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    label: 'パスワード確認用',
+                    required: true,
+                    hint: "確認用にもう一度入力",
+                    input_html: { autocomplete: "new-password" } %>
+
+
+
+        <!-- date型で生年月日。 start_year,end_yearで西暦範囲を絞る -->
+        <%= f.input :birth_date,
+                      label: '誕生日',
+                      start_year: Date.today.year - 110,
+                      end_year: Date.today.year %>
+
+
+        <!-- <br /> -->
+        <!-- 詳細情報登録more_profile 折りたたみcollapse =============================== -->
+        <div class="form-group">
+          <a class="btn btn-info" data-toggle="collapse" href="#collapse_profile">
+            + Add More Profile
+          </a>
+        </div>
+        <div class="collapse" id="collapse_profile">
+          <hr />
+
+
+            <%= f.input :age,
+                        label: "年齢",
+                        collection: 0..120 %>
+
+            <%= f.input :birthplace,
+                        label: "出身" %>
+
+            <!-- 性別ラジオボタン。 male=>male, female=>femaleとして登録 -->
+            <%= f.input :gender,
+                        as: :radio_buttons,
+                        label: "性別",
+                        collection: [["male", "male"],["female", "female"]] %>
+
+
+            <!--元気？ラジオボタン。 Good => 1, Fine=>2.....として登録 -->
+            <%= f.input :how_are_you,
+                        label: "How are you?",
+                        as: :radio_buttons,
+                        collection: [["Good!!", 1],["Fine!", 2],["Soso", 3],["Bad..", 4]],
+                        checked: 1 %>
+                        <!-- 初期で１にチェック入れる -->
+
+        </div>
+      </div><!-- <div class="form-inputs"> -->
+
+<!-- ======================================================================================= -->
+      <div class="form-actions">
+        <%= f.button :submit, "登録する！",
+                      :class=>"btn btn-ac1 btn-lg btn-block" %>
+      </div>
+    <% end %>
+
+      <div class="font-weight-light text-center mt-3">
+        <p>登録済ユーザーの方はこちらからログイン</p>
+        <!-- Log inリンク文字の表示 ページ「によって切り替えて表示-->
+        <h5 class="font-weight-bold"><%= render "devise/shared/links" %></h5>
+      </div>
+
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
